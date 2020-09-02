@@ -1,22 +1,28 @@
-import React, { useState } from "react";
+import React from "react";
 import "../tailwind.output.css";
 import "../custom.css";
+import { connect } from "react-redux";
+import * as actionCreators from "../actions/actions";
 
 const InputField = (props) => {
-  const [inputValue, setInputValue] = useState("");
   return (
-    <div>
+    <div className="input-container">
       <input
         id="input-id"
         className="input-field"
-        placeholder="Type something here..."
-        onChange={(event) => setInputValue(event.target.value)}
+        placeholder="Type a name here..."
       ></input>
-      <button onClick={() => props.onClick(inputValue)} className="input-btn">
+      <button onClick={props.loadNameInfo} className="input-btn">
         Search
       </button>
     </div>
   );
 };
 
-export default InputField;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    loadNameInfo: () => dispatch(actionCreators.loadName()),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(InputField);
