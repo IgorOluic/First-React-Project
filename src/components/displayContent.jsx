@@ -1,6 +1,6 @@
 import React from "react";
-import "../custom.css";
 import { connect } from "react-redux";
+import "../custom.css";
 
 const DisplayContent = (props) => {
   if (props.name) {
