@@ -1,5 +1,4 @@
 import React from "react";
-import "../tailwind.output.css";
 import "../custom.css";
 import { connect } from "react-redux";
 import * as actionCreators from "../actions/actions";
@@ -8,6 +7,7 @@ const InputField = (props) => {
   return (
     <div className="input-container">
       <input
+        autoComplete="off"
         id="input-id"
         className="input-field"
         placeholder="Type a name here..."
@@ -21,7 +21,7 @@ const InputField = (props) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    loadNameInfo: () => dispatch(actionCreators.loadName()),
+    loadNameInfo: () => dispatch(actionCreators.loadNameInfo()),
   };
 };
 
